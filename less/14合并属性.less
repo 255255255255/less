@@ -1,0 +1,8 @@
+//在需要合并的属性的:的前面加上+就可以完成合并，合并以，分割属性。
+.mixin(){
+    box-shadow+: inset 0 0 10px #555; 
+}
+.myclass{
+    .mixin();
+    box-shadow+: 0 0 20px black;
+}

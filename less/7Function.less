@@ -1,0 +1,11 @@
+//LESS中提供了转换颜色、处理字符串和进行算术运算的函数
+
+//rgb()函数：将rgb函数的值转换为16进制的值
+.bgcolor{
+    background-color:rgb(255,0,0); //#ff0000
+}
+//提取颜色值的函数[blue]|[red]|[green]，提取的是rgb模式的颜色值
+.bgcolor1{
+    z-index: blue(#5c7abd); //提取蓝色的值
+    border: red(#565656);//提取红色的值
+}

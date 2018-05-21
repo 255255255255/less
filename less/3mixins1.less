@@ -1,0 +1,80 @@
+//普通混合
+//混合就是一种将一系列属性从一个规则集引入('混合')到另一个规则集的方式
+.font_hn {
+    color: red;
+    font-family: "仿宋";
+}
+
+.p1 {
+    font-size: 28px;
+    .font_hn;
+}
+
+.p2 {
+    font-size: 24px;
+    .font_hn;
+}
+
+//不带输出的混合
+//如果你想要创建一个混合集，但是却不想让它输出到你的样式中
+//在不想输出的混合集的名字后面加上一个括号，就可以实现
+.font_hn() {
+    color: red;
+    font-family: "仿宋";
+}
+
+.p1 {
+    font-size: 28px;
+    .font_hn;
+}
+
+.p2 {
+    font-size: 24px;
+    .font_hn;
+}
+
+//带选择器的混合
+.my-hover-mixin() {
+    &:hover {
+        //&：代表父级
+        border: 1px solid red;
+    }
+    //&:hover=.my-hover-mixin:hover
+}
+
+button {
+    .my-hover-mixin();
+}
+
+a {
+    .my-hover-mixin();
+}
+
+//带参数的混合
+.border1(@color) {
+    border: 1px solid @color;
+}
+
+h1 {
+    &:hover {
+        .border1(green);   //一定要有参数，不然会报错
+    }
+    
+    
+}
+//带参数并且有默认值
+.border2(@color:red) {
+    border: 1px solid @color;
+}
+h6 {    
+    &:hover {
+        .border2();
+    }
+}
+//当有默认参数的时候，如果.border()没有参数，并不会报错，会执行默认的参数。
+h6 {
+    &:hover {
+        .border2(pink);
+    }
+}
+//.border()有参数时，会执行参数里面的值

@@ -1,0 +1,28 @@
+//带条件的混合
+.mixin(@a)when(lightness(@a)>=50%){  //lightness:取颜色值亮度的函数,取值为0~100%
+   background-color: black; 
+}  
+.mixin(@a)when(lightness(@a)<50%){ //rgb模式中最大的取值为255，除以2为175.5,我们可以粗略的认为:
+    background-color: white;         //当a的值大于175.5时为亮色，a的值小于175.5时为暗色。
+}
+.mixin(@a){
+    color:@a;
+}
+.class1{
+    .mixin(#ddd);//211>175.5>50%,显示的背景颜色为黑色
+}
+.class2{
+    .mixin(#555); //85<175.5<50%,显示的背景颜色为白色
+}
+//类型检查函数：可以基于值的类型来匹配函数
+//[iscolor]:
+//[isnumber]:
+//[isstring]:
+//[iskeyword]:
+//[isurl]:
+
+//单位检查函数:检查一个值除了数字是否是一个特定的单位
+//[ispixel]：px
+//[ispercentage]:百分比
+//[isem]:厘米
+//[isunit]:单元

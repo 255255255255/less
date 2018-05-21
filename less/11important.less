@@ -1,0 +1,13 @@
+//在调用的混合集后面追加！important关键字，可以使混合集里面的所有属性都继承！important
+.foo(@bg:#515151,@color:#900){
+    background-color: @bg;
+    color: @color;
+    font-size: 16px;
+    font-weight: 900;
+}
+.unimport{
+    .foo();
+}
+.important{
+    .foo()!important;
+}

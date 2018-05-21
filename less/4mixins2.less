@@ -1,0 +1,115 @@
+//带多个参数的混合
+//（1）参数以分号或逗号分隔。建议使用分号。
+//符号逗号具有双重含义：它可以解释为混合参数分隔符或CSS列表分隔符。
+
+
+.mixin1(@color;@padding:xxx;@margin:2){
+    color-3:@color;
+    padding-3:@padding ;
+    margin: @margin@margin@margin@margin;
+    
+}
+.divmaizi1{
+    .mixin1(red;)
+}
+.maizi1{
+    .mixin1(1,2,3;something,else;132); //一个分号结束为一个参数，【以分号为分隔符】
+}
+.div1{
+    .mixin1(1,2,3);  //若没有分号，只有逗号，括号里面的所有参数则分别代表不同的值，【以逗号为分隔符】
+}
+.div2{
+    .mixin1(1,2,3;);  //若既有分号又有逗号，分号前的所有参数只分别代表1个整体参数，【以分号为分隔符】
+}
+
+
+//(2)定义多个具有相同名称和参数数量的混合
+//定义多个具有相同名称和参数数量的mixin是合法的，Less会使用它可以应用的属性。
+//如果使用mixin的时候只带一个参数，这个属性会导致所有的mixin
+.mixin2(@color){
+    color-1:@color ;
+}
+.mixin2(@color;@padding:2){
+    color-2: @color;
+    padding-2:@padding ;
+}
+.mixin2(@color;@padding;@margin:2){
+    color-3:@color ;
+    padding-3:@padding ;
+    margin:@margin@margin@margin@margin;
+}
+.some .selector div{
+    .mixin2(#008000);
+}
+
+
+//命名参数：
+//mixin参考可以通过名称而不是位置来提供参数值。任何参数都可以通过其名称来引用，而且它们不必按照任何特殊顺序进行引用
+.mixin3(@color:black;@margin:10px;@padding:20px){
+    color: @color;
+    margin: @margin;
+    padding: @padding;
+}
+.class1{
+    .mixin3(@margin:20px;@color:#33acfe);
+}
+.class2{
+    .mixin3(#efca44;@padding:40px;);
+}
+.class3{
+    .mixin3(@padding:20px;)
+}
+//arguments变量
+//@arguments代表所有可变的参数，参数的项先后顺序就是你的（）括号内的参数的先后顺序。
+//在使用赋值时：值的位置和个数也是一一对应的，只有一个值：把值赋值给第一个；若有两个值：把值赋给第一个参数和第二个参数......以此类推
+.border1(@x:solid,@c:red){
+    border:21px @arguments;
+}
+.div3{
+    .border1(solid);
+}
+//匹配模式：传值的时候定义一个字符，在使用的时候使用哪个字符，就调用哪条规则
+.border2(all,@w:10px){
+    border-radius: @w;
+}
+.border2(t_l,@w:10px){
+    border-top-left-radius: @w;
+}
+.border2(t_r,@w:10px){
+    border-top-right-radius: @w;
+}
+.border2(b_l,@w:10px){
+    border-bottom-left-radius: @w;
+}
+.border2(b_r,@w:10px){
+    border-bottom-right-radius: @w;
+}
+//可以传参数，也可以不传参数
+button{
+    .border2(all);
+}
+button{
+    .border2(all,5px);
+}
+button{
+    .border2(t_l,5px);
+}
+button{
+    .border2(t_r,5px);
+}
+button{
+    .border2(b_l,5px);
+}
+button{
+    .border2(b_r,5px);
+}
+//得到混合中变量的返回值
+.average(@x,@y){
+    @average:((@x+@y)/2);
+    @add:(@x+@y);
+}
+div{
+    .average(16px,50px);
+    padding: @average;
+    margin: @add;
+}

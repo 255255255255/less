@@ -1,0 +1,46 @@
+//普通的变量
+@green:green;
+@white:white;
+header{
+    background-color: @green;
+    h1{
+       color: @white; 
+    }
+}
+footer{
+    background-color: @green;
+    color: @white; 
+}
+
+//作为选择器和属性名
+@width:width;
+
+.@{width}{
+    @{width}:150px;
+    height: 60px;
+}
+//作为URL
+@Imgurl:"http://seopic.699pic.com/";
+body{
+    background-image: url("@{Imgurl}photo/50056/3725.jpg_wh1200.jpg");
+    background-repeat:no-repeat;
+    width:200px;
+   
+}
+//延迟加载:变量是延迟加载的，在使用前不一定要预先声明，可以先使用后定义
+
+//定义多个相同名称的变量时，只会使用最后定义的变量，Less会从当前作用域中向上搜索，
+//这个行为类似于CSS的定义中始终使用最后定义的属性值
+@var:0;
+.class{
+    @var:1;
+    .brass{
+        @var:2;
+        three:@var;  //three的值为3 
+        @var:3;
+    }
+    one:@var; //跳出.bress,one的值为1
+//  two:@var;
+//  @var:aaa;
+//注意：只能在它的作用域范围找，
+}

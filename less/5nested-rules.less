@@ -1,0 +1,100 @@
+//嵌套规则
+//嵌套规则模仿了HTML的结构，让我们的css代码更加简洁明了，清晰。
+
+//传统的写法
+//header{
+//  width:960px;
+//  background-color: cornsilk;
+//}
+//header p{
+//  font-size: 26px;
+//  color:#535353;
+//  font-family: "仿宋";
+//}
+//header .logo{
+//  width: 200px;
+//  height: 200px;
+//  border:2px solid #008000;
+//}
+//LESS写法
+header {
+    width: 960px;
+    background-color: cornsilk;
+    p {
+        font-size: 26px;
+        color: #535353;
+        font-family: "仿宋";
+    }
+    .logo {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #008000;
+    }
+}
+//父元素选择器：&：表示当前选择器的所有父选择器
+//传统的写法
+//header .logo{
+//  width: 200px;
+//  height: 200px;
+//  border:2px solid #008000;
+//}
+//header .logo:hover{
+//  background-color: #EFCA44;
+// 
+//}
+//LESS写法
+header {
+    width: 960px;
+    background-color: cornsilk;
+    p {
+        font-size: 26px;
+        color: #535353;
+        font-family: "仿宋";
+    }
+    .logo {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #008000;
+        &:hover{   //&符号代表它的所有的父元素选择器
+            background-color: coral;
+        }
+    }
+}
+//改变选择器的顺序
+//将&放到当前选择器之后，就会把当前选择器插入到所有的父选择器之前
+.a{
+    .b{
+        &.c{       //选择当前的选择器 ,选择器顺序为.a .b .c
+            color:bisque;
+        }
+    }
+}
+.a{
+    .b{
+        .c &{      //C的选择器将会被提到所有的父选择器之前.c .a .b
+            color:bisque;
+        }
+    }
+}
+//组合使用生成所有可能的选择器列表
+//[& &](表示两个组合),要有一个空格
+//[& & &](表示三个组合)
+//[& & & &](表示四个组合)
+//......以此类推
+p,a,ul,li{
+    border-top: 2px dotted #366;
+    &{                 //当有一个&时，表示选择当前的选择器
+        border-top: 0;
+    }
+}
+p,a,ul,li{
+    border-top: 2px dotted #366;
+    & &{              //当有两个&&时，表示混合所有的选择器
+        border-top: 0;
+    }
+}
+a,b,c{
+    & &{
+        color:aqua;
+    }
+}

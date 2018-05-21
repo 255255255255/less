@@ -1,0 +1,22 @@
+//LESS中的作用域与编程语言中的作用域概念非常相似，首先会在局部查找变量和混合，
+//如果没有找到，编译器就会在父作用域中查找，以此类推。
+
+@color:#fff;
+.bgcolor{
+    width:50px;
+    a{
+      color: @color;  
+    }
+    @color:#ff0000;
+}
+//
+
+@color:#fff;
+.bgcolor1{
+    width:50px;
+    a{
+        @color:green;
+      color: @color;  
+    }
+    @color:#ff0000;
+} 

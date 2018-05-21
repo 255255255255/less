@@ -1,0 +1,65 @@
+.divmaizi1 {
+  color-3: #ff0000;
+  padding-3: xxx;
+  margin: 2 2 2 2;
+}
+.maizi1 {
+  color-3: 1, 2, 3;
+  padding-3: something, else;
+  margin: 132 132 132 132;
+}
+.div1 {
+  color-3: 1;
+  padding-3: 2;
+  margin: 3 3 3 3;
+}
+.div2 {
+  color-3: 1, 2, 3;
+  padding-3: xxx;
+  margin: 2 2 2 2;
+}
+.some .selector div {
+  color-1: #008000;
+  color-2: #008000;
+  padding-2: 2;
+}
+.class1 {
+  color: #33acfe;
+  margin: 20px;
+  padding: 20px;
+}
+.class2 {
+  color: #efca44;
+  margin: 10px;
+  padding: 40px;
+}
+.class3 {
+  color: #000000;
+  margin: 10px;
+  padding: 20px;
+}
+.div3 {
+  border: 21px solid #ff0000;
+}
+button {
+  border-radius: 10px;
+}
+button {
+  border-radius: 5px;
+}
+button {
+  border-top-left-radius: 5px;
+}
+button {
+  border-top-right-radius: 5px;
+}
+button {
+  border-bottom-left-radius: 5px;
+}
+button {
+  border-bottom-right-radius: 5px;
+}
+div {
+  padding: 33px;
+  margin: 66px;
+}

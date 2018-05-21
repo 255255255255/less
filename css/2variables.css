@@ -1,0 +1,25 @@
+header {
+  background-color: #008000;
+}
+header h1 {
+  color: #ffffff;
+}
+footer {
+  background-color: #008000;
+  color: #ffffff;
+}
+.width {
+  width: 150px;
+  height: 60px;
+}
+body {
+  background-image: url("http://seopic.699pic.com/photo/50056/3725.jpg_wh1200.jpg");
+  background-repeat: no-repeat;
+  width: 200px;
+}
+.class {
+  one: 1;
+}
+.class .brass {
+  three: 3;
+}

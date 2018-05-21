@@ -1,0 +1,19 @@
+//你可以引入一个或者多个less文件，然后这个文件中的所有变量都可以在当前的less项目中使用
+
+@import "main.less";
+.content{
+    width: @wp;
+    height: @wp;
+}
+//引入CSS文件会被原样输出到编译的文件中
+@import "index.css";
+
+//可带参数:
+//once[默认、使用一次]
+//reference[使用LESS文件但不输出]
+//inline[在输出中包含源文件但不加工它]
+//less[将作为LESS文件对象，无论是什么文件扩展名]
+//css[将作为CSS文件对象，无论是什么文件扩展名]
+//multiple[mutiple]
+
+
